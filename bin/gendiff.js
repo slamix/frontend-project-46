@@ -1,12 +1,26 @@
 #!/usr/bin/env node
 
 import { program } from 'commander';
+import _ from 'lodash';
 import parseFiles from '../src/index.js';
+import {
+  createArrWithAddedItems,
+  createArrWithRemovedItems,
+  createArrWithChangedItems,
+  createArrWithUnchangedItems,
+  createOutput,
+} from '../src/utils.js';
 
 const genDiff = (file1, file2) => {
   const [firstFileData, secondFileData] = parseFiles(file1, file2);
-  console.log(firstFileData);
-  console.log(secondFileData);
+
+  const added = createArrWithAddedItems(firstFileData, secondFileData);
+  const removed = createArrWithRemovedItems(firstFileData, secondFileData);
+  const changed = createArrWithChangedItems(firstFileData, secondFileData);
+  const unchanged = createArrWithUnchangedItems(firstFileData, secondFileData);
+
+  const data = _.sortBy([...changed, ...added, ...removed, ...unchanged], ((node) => node.key));
+  console.log(createOutput(data));
 };
 
 program
