@@ -3,9 +3,9 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
-      steps:
-        - run: make install
-        - name: Hexlet project custom check
+    steps:
+      - run: make install
+      - name: Hexlet project custom check
         uses: actions/checkout@v2
-        - run: make test
-        - run: make lint
+      - run: make test
+      - run: make lint
