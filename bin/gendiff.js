@@ -4,20 +4,20 @@ import { program } from 'commander';
 import _ from 'lodash';
 import parseFiles from '../src/index.js';
 import {
-  createArrWithAddedItems,
-  createArrWithRemovedItems,
-  createArrWithChangedItems,
-  createArrWithUnchangedItems,
+  getAddedItems,
+  getRemovedItems,
+  getChangedItems,
+  getUnchangedItems,
   createOutput,
 } from '../src/utils.js';
 
 const genDiff = (file1, file2) => {
   const [firstFileData, secondFileData] = parseFiles(file1, file2);
 
-  const added = createArrWithAddedItems(firstFileData, secondFileData);
-  const removed = createArrWithRemovedItems(firstFileData, secondFileData);
-  const changed = createArrWithChangedItems(firstFileData, secondFileData);
-  const unchanged = createArrWithUnchangedItems(firstFileData, secondFileData);
+  const added = getAddedItems(firstFileData, secondFileData);
+  const removed = getRemovedItems(firstFileData, secondFileData);
+  const changed = getChangedItems(firstFileData, secondFileData);
+  const unchanged = getUnchangedItems(firstFileData, secondFileData);
 
   const data = _.sortBy([...changed, ...added, ...removed, ...unchanged], ((node) => node.key));
   console.log(createOutput(data));

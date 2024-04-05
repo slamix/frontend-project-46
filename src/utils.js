@@ -1,4 +1,4 @@
-const createArrWithAddedItems = (firstFileData, secondFileData) => {
+const getAddedItems = (firstFileData, secondFileData) => {
   const keysOfFirstFile = Object.keys(firstFileData);
   const keysOfSecondFile = Object.keys(secondFileData);
 
@@ -9,7 +9,7 @@ const createArrWithAddedItems = (firstFileData, secondFileData) => {
   return addedItems;
 };
 
-const createArrWithRemovedItems = (firstFileData, secondFileData) => {
+const getRemovedItems = (firstFileData, secondFileData) => {
   const keysOfFirstFile = Object.keys(firstFileData);
   const keysOfSecondFile = Object.keys(secondFileData);
 
@@ -20,7 +20,7 @@ const createArrWithRemovedItems = (firstFileData, secondFileData) => {
   return removedItems;
 };
 
-const createArrWithUnchangedItems = (firstFileData, secondFileData) => {
+const getUnchangedItems = (firstFileData, secondFileData) => {
   const keysOfFirstFile = Object.keys(firstFileData);
   const keysOfSecondFile = Object.keys(secondFileData);
 
@@ -32,7 +32,7 @@ const createArrWithUnchangedItems = (firstFileData, secondFileData) => {
   return unchangedItems;
 };
 
-const createArrWithChangedItems = (firstFileData, secondFileData) => {
+const getChangedItems = (firstFileData, secondFileData) => {
   const keysOfFirstFile = Object.keys(firstFileData);
   const keysOfSecondFile = Object.keys(secondFileData);
 
@@ -71,9 +71,9 @@ ${res.join('\n')}
 };
 
 export {
-  createArrWithAddedItems,
-  createArrWithRemovedItems,
-  createArrWithChangedItems,
-  createArrWithUnchangedItems,
+  getAddedItems,
+  getRemovedItems,
+  getChangedItems,
+  getUnchangedItems,
   createOutput,
 };
