@@ -10,15 +10,3 @@ test('test 1', () => {
   + verbose: true
 }`);
 });
-/* '
-{
-    age: 38
-  - children: ["Sergey", "Masha"]
-  + children: ["Masha", "Misha", "Varya"]
-  - name: Leha
-  + name: Sasha
-  - surname: Alekseev
-  + surname: Aleksandrov
-    wife: Alyona
-}
-' */
