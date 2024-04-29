@@ -9,6 +9,8 @@ const outputType = (data) => {
         return `  + ${node.key}: ${node.value}`;
       case 'removed':
         return `  - ${node.key}: ${node.value}`;
+      case 'nested':
+        return `    ${node.key}: ${outputType(node.value)}`;
       default:
         throw new Error('Error!');
     }
