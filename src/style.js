@@ -1,54 +1,43 @@
-const REPLACER = '  ';
+import _ from 'lodash';
 
-const outputType = (data) => {
-  const res = data.map((node) => {
-    switch (node.status) {
-      case 'changed':
-        return `  - ${node.key}: ${node.oldValue}\n  + ${node.key}: ${node.newValue}`;
-      case 'unchanged':
-        return `    ${node.key}: ${node.value}`;
-      case 'added':
-        return `  + ${node.key}: ${node.value}`;
-      case 'removed':
-        return `  - ${node.key}: ${node.value}`;
-      case 'nested':
-        return `    ${node.key}: ${outputType(node.value)}`;
-      default:
-        throw new Error('Error!');
-    }
-  });
+const LONGPADDING = '    ';
+const SHORTPADDING = '  ';
 
+const stringify = (data, depth) => {
+  if (!_.isObject(data)) {
+    return `${data}`;
+  }
+  const keys = Object.keys(data);
+  const res = keys.map((key) => `${LONGPADDING.repeat(depth + 1)}${key}: ${stringify(data[key], depth + 1)}`);
   return `{
 ${res.join('\n')}
-}`;
+${LONGPADDING.repeat(depth)}}`;
 };
-
-// export default outputType;
 
 const stylishOutput = (data) => {
   const createDepth = (node, depth = 1) => {
     const res = node.map((item) => {
       switch (item.status) {
         case 'changed':
-          return `${REPLACER.repeat(depth)}- ${item.key}: ${item.oldValue}
-${REPLACER.repeat(depth)}+ ${item.key}: ${item.newValue}`;
+          return `${LONGPADDING.repeat(depth - 1)}${SHORTPADDING}- ${item.key}: ${stringify(item.oldValue, depth)}
+${LONGPADDING.repeat(depth - 1)}${SHORTPADDING}+ ${item.key}: ${stringify(item.newValue, depth)}`;
         case 'unchanged':
-          return `${REPLACER.repeat(depth)}  ${item.key}: ${item.value}`;
+          return `${LONGPADDING.repeat(depth)}${item.key}: ${stringify(item.value, depth)}`;
         case 'added':
-          return `${REPLACER.repeat(depth)}+ ${item.key}: ${item.value}`;
+          return `${LONGPADDING.repeat(depth - 1)}${SHORTPADDING}+ ${item.key}: ${stringify(item.value, depth)}`;
         case 'removed':
-          return `${REPLACER.repeat(depth)}- ${item.key}: ${item.value}`;
+          return `${LONGPADDING.repeat(depth - 1)}${SHORTPADDING}- ${item.key}: ${stringify(item.value, depth)}`;
         case 'nested':
-          return `${REPLACER.repeat(depth)}  ${item.key}: ${createDepth(item.value, depth + 2)}`;
+          return `${LONGPADDING.repeat(depth)}${item.key}: ${createDepth(item.value, depth + 1)}`;
         default:
           throw new Error(`Unknown status: ${item.status}`);
       }
     });
     return `{
 ${res.join('\n')}
-${REPLACER.repeat(depth - 1)}}`;
+${LONGPADDING.repeat(depth - 1)}}`;
   };
-  return createDepth(data, 1);
+  return createDepth(data);
 };
 
 export default stylishOutput;

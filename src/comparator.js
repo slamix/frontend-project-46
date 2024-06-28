@@ -71,5 +71,5 @@ const getDiff = (data1, data2) => {
   return res;
 };
 
-// console.log(getDiff(obj1, obj2));
+// console.log(getDiff(obj1, obj2)[0].value);
 export default getDiff;
