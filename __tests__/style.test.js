@@ -19,4 +19,4 @@ test('output test 1', () => {
   - weight: 59
   + weight: 65
 }`)
-})
+});
