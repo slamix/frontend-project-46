@@ -19,8 +19,8 @@ const stylishOutput = (data) => {
     const res = node.map((item) => {
       switch (item.status) {
         case 'changed':
-          return `${LONGPADDING.repeat(depth - 1)}${SHORTPADDING}- ${item.key}: ${stringify(item.oldValue, depth)}
-${LONGPADDING.repeat(depth - 1)}${SHORTPADDING}+ ${item.key}: ${stringify(item.newValue, depth)}`;
+          return `${LONGPADDING.repeat(depth - 1)}${SHORTPADDING}- ${item.key}: ${stringify(item.value[0], depth)}
+${LONGPADDING.repeat(depth - 1)}${SHORTPADDING}+ ${item.key}: ${stringify(item.value[1], depth)}`;
         case 'unchanged':
           return `${LONGPADDING.repeat(depth)}${item.key}: ${stringify(item.value, depth)}`;
         case 'added':
