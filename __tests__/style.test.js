@@ -1,11 +1,11 @@
-import outputType from '../src/style.js';
+import outputType from '../src/formatters/style.js';
 
 const data = [
   { key: [ 'age' ] ,  value: 18, status: 'unchanged' },
   { key: [ 'country' ], value: 'Russia', status: 'added' },
   { key: [ 'hobby' ], value: 'football', status: 'removed' },
-  { key: [ 'name' ], oldValue: 'Alex', newValue: 'Roma', status: 'changed' },
-  { key: [ 'weight' ], oldValue: 59, newValue: 65, status: 'changed' },
+  { key: [ 'name' ], value: ['Alex', 'Roma'], status: 'changed' },
+  { key: [ 'weight' ], value: [59, 65], status: 'changed' },
 ];
 
 
