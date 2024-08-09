@@ -11,7 +11,7 @@ Difference generator determines the difference between two data structures and s
 * You can select output format: stylish(default), plain or JSON
 * Recursive comparison of flat and nested structures
 ### System requirements
-You must have downloaded nodejs, no lower then v21.7.1
+You must have downloaded nodejs, no lower than v21.7.1
 ### Setup
 ```
 git clone git@github.com:slamix/frontend-project-46.git
