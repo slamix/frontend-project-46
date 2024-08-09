@@ -2,7 +2,8 @@
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/slamix/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/slamix/frontend-project-46/actions)
 ![Build Status](https://github.com/slamix/frontend-project-46/workflows/custom-check/badge.svg)
-<a href="https://codeclimate.com/github/slamix/frontend-project-46/maintainability"><img src="https://api.codeclimate.com/v1/badges/7db8e36b8c523f2a58aa/maintainability" /></a> <a href="https://codeclimate.com/github/slamix/frontend-project-46/test_coverage"><img src="https://api.codeclimate.com/v1/badges/7db8e36b8c523f2a58aa/test_coverage" /></a>
+[![Maintainability](https://api.codeclimate.com/v1/badges/7db8e36b8c523f2a58aa/maintainability)](https://codeclimate.com/github/slamix/frontend-project-46/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/7db8e36b8c523f2a58aa/test_coverage)](https://codeclimate.com/github/slamix/frontend-project-46/test_coverage)
 ### Description
 Difference generator determines the difference between two data structures and shows the result in the selected format.
 ### Features
