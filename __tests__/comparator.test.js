@@ -1,4 +1,5 @@
 import getDiff from '../src/comparator.js';
+import data from '../__fixtures__/dataForTests.js';
 
 const obj1 = {
   name: 'Alex', 
@@ -14,14 +15,6 @@ const obj2 = {
   country: 'Russia',
 };
 
-const goodOutput = [
-  { key: [ 'age' ] ,  value: 18, status: 'unchanged' },
-  { key: [ 'country' ], value: 'Russia', status: 'added' },
-  { key: [ 'hobby' ], value: 'football', status: 'removed' },
-  { key: [ 'name' ], value: ['Alex', 'Roma'], status: 'changed' },
-  { key: [ 'weight' ], value: [59, 65], status: 'changed' },
-];
-
 test('compare two objects', () => {
-  expect(getDiff(obj1, obj2)).toEqual(goodOutput);
+  expect(getDiff(obj1, obj2)).toEqual(data);
 });
