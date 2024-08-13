@@ -2,7 +2,7 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "my second frontend project. Gendiff is util which search differences between two files with json/yml format",
-  "main": "src/index.js",
+  "main": "src/formatters/index.js",
   "type": "module",
   "bin": {
     "gendiff": "bin/gendiff.js"
