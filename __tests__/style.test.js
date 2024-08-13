@@ -1,7 +1,7 @@
 import outputType from '../src/formatters/style.js';
 import data from '../__fixtures__/dataForTests.js';
 
-test('output test 1', () => {
+test('output test))', () => {
   expect(outputType(data)).toEqual(`{
     age: 18
   + country: Russia

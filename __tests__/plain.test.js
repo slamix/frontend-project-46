@@ -13,4 +13,4 @@ Property 'proxy' was removed
 Property 'timeout' was updated. From 50 to 20
 Property 'verbose' was added with value: true`;
 
-test('test 1', () => expect(plainOutput(data)).toEqual(goodRes));
+test('plain test', () => expect(plainOutput(data)).toEqual(goodRes));

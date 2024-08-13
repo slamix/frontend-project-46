@@ -1,6 +1,6 @@
 import genDiff from '../src/formatters/index.js';
 
-test('with nested files', () => {
+test('with nested files stylish', () => {
   expect(genDiff('__fixtures__/file1.json', '__fixtures__/file2.json')).toEqual(`{
     common: {
       + follow: false
