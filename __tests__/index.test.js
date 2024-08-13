@@ -44,8 +44,8 @@ test('test with nested files', () => {
         }
         fee: 100500
     }
-}`)
-} );
+}`);
+});
 
 test('test of plain format with nested files', () => {
   expect(genDiff('__fixtures__/file1.json', '__fixtures__/file2.json', 'plain')).toEqual(`Property 'common.follow' was added with value: false

@@ -10,5 +10,5 @@ test('output test 1', () => {
   + name: Roma
   - weight: 59
   + weight: 65
-}`)
+}`);
 });
