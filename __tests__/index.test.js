@@ -47,7 +47,7 @@ test('with nested files stylish', () => {
 }`);
 });
 
-test('test of plain format with nested files', () => {
+test('plain format with nested files', () => {
   expect(genDiff('__fixtures__/file1.json', '__fixtures__/file2.json', 'plain')).toEqual(`Property 'common.follow' was added with value: false
 Property 'common.setting2' was removed
 Property 'common.setting3' was updated. From true to null
