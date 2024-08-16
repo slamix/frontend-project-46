@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import parseFiles from '../parsers.js';
 import getDiff from '../comparator.js';
 import stylishOutput from './style.js';
