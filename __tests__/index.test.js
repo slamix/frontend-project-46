@@ -17,7 +17,7 @@ test('makeGendiff: Throws "unknown format"', () => {
 describe.each([
   ['stylish', 'expectedStylish.txt'],
   ['plain', 'expectedPlain.txt'],
-  ['json', 'expectedJSON.json'],
+  ['json', 'expectedJson.json'],
 ])('%s formatter', (formatter, expectedFile) => {
   const filepathOfExpected = getFixturePath(expectedFile);
   const expected = fs.readFileSync(filepathOfExpected, 'utf-8');
