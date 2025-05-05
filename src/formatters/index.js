@@ -1,18 +1,22 @@
-import path from 'node:path';
-import fs from 'fs';
-import * as yml from 'js-yaml';
+import parseFiles from '../parsers.js';
+import getDiff from '../comparator.js';
+import stylishOutput from './style.js';
+import plainOutput from './plain.js';
+import jsonOutput from './json.js';
 
-const parseFiles = (file1, file2) => {
-  const filepath1 = path.resolve(process.cwd(), file1);
-  const filepath2 = path.resolve(process.cwd(), file2);
-  if (path.extname(file1) === '.json') {
-    const dataFile1 = JSON.parse(fs.readFileSync(filepath1, 'utf-8'));
-    const dataFile2 = JSON.parse(fs.readFileSync(filepath2, 'utf-8'));
-    return [dataFile1, dataFile2];
+const genDiff = (file1, file2, options = 'stylish') => {
+  const [firstFileData, secondFileData] = parseFiles(file1, file2);
+  const res = getDiff(firstFileData, secondFileData);
+  switch (options) {
+    case 'stylish':
+      return stylishOutput(res);
+    case 'plain':
+      return plainOutput(res);
+    case 'json':
+      return jsonOutput(res);
+    default:
+      throw new Error(`unknown option: ${options}`);
   }
-  const dataFile1 = yml.load(fs.readFileSync(filepath1, 'utf-8'));
-  const dataFile2 = yml.load(fs.readFileSync(filepath2, 'utf-8'));
-  return [dataFile1, dataFile2];
 };
 
-export default parseFiles;
+export default genDiff;

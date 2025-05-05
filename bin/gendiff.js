@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { program } from 'commander';
-import genDiff from '../src/formatters/parser.js';
+import genDiff from '../index.js';
 
 const gendiffCLI = () => {
   program
