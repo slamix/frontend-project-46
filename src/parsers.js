@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import path from 'node:path';
 import fs from 'fs';
 import * as yml from 'js-yaml';

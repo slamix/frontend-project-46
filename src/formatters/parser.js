@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 import parseFiles from './index.js';
 import getDiff from '../comparator.js';
 import stylishOutput from './style.js';

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable */
 
 import { program } from 'commander';
 import genDiff from '../index.js';

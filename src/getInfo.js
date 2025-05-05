@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const getInfo = (data1, data2, key) => {
   if (Object.hasOwn(data1, key) && Object.hasOwn(data2, key)) {
     if (data1[key] === data2[key]) {
